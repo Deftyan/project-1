@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LawFirm Company Profile</title>
+  <style>
+    /* Base Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      flex-grow: 1;
+    }
+    /* Header */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+    /* Logo styling */
+    .logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      color: #004080;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #004080;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    /* Content Grid */
+    .content-grid {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    section.card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 25px;
+      flex: 1 1 300px;
+      max-width: 450px;
+    }
+    section.card h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #0077cc;
+      border-bottom: 3px solid #0077cc;
+      padding-bottom: 8px;
+    }
+    section.card p, section.card ul {
+      color: #333;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    section.card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    section.card ul li {
+      margin-bottom: 10px;
+    }
+    /* Contact Section */
+    #contact {
+      max-width: 600px;
+      margin: 0 auto 60px;
+      padding: 25px 20px;
+      border-radius: 8px;
+      background: #f9f9f9;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #contact h3 {
+      color: #0077cc;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #0077cc;
+      padding-bottom: 8px;
+      font-weight: 700;
+    }
+    #contact p.contact-info {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    form label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      color: #222;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 16px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #222;
+      transition: border-color 0.2s ease;
+    }
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #0077cc;
+      box-shadow: 0 0 4px #0077cc;
+    }
+    form button {
+      background-color: #0077cc;
+      color: #fff;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    form button:hover {
+      background-color: #005fa3;
+    }
+    #form-response {
+      color: green;
+      font-weight: 700;
+      margin-top: 12px;
+      display: none;
+      text-align: center;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 18px 12px;
+      border-top: 1px solid #ddd;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: #fafafa;
+    }
+    /* Responsive */
+    @media (max-width: 640px) {
+      .content-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      section.card {
+        max-width: 100%;
+      }
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Inline SVG logo of balanced scales -->
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true" role="img" >
+      <circle cx="32" cy="32" r="30" stroke="#0077cc" stroke-width="3"/>
+      <path stroke="#0077cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M32 12v40M12 44h40M20 44v-8m24 8v-8M20 36l12-8 12 8"/>
+      <circle cx="20" cy="42" r="6" stroke="#0077cc" stroke-width="3"/>
+      <circle cx="44" cy="42" r="6" stroke="#0077cc" stroke-width="3"/>
+    </svg>
+    <h1>LawFirm &amp; Partners</h1>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Expert Legal Guidance You Can Trust</h2>
+      <p>With decades of experience, we offer tailored legal solutions for businesses and individuals.</p>
+    </section>
+
+    <div class="content-grid">
+      <section id="about" class="card">
+        <h3>About Us</h3>
+        <p>LawFirm &amp; Partners is committed to providing clear, effective, and professional legal advice. Our team specializes in diverse areas including corporate law, civil dispute resolution, intellectual property, and family law. We put our client's interests first and work diligently to deliver results.</p>
+      </section>
+
+      <section id="services" class="card">
+        <h3>Services</h3>
+        <ul>
+          <li>Corporate &amp; Commercial Law</li>
+          <li>Civil Litigation &amp; Dispute Resolution</li>
+          <li>Intellectual Property Law</li>
+          <li>Family &amp; Matrimonial Law</li>
+          <li>Contract Drafting &amp; Negotiation</li>
+        </ul>
+      </section>
+    </div>
+
+    <section id="contact">
+      <h3>Contact Us</h3>
+      <p class="contact-info"><strong>Address:</strong> 123 Legal Ave, Suite 400, Cityville</p>
+      <p class="contact-info"><strong>Phone:</strong> +1 (555) 987-6543</p>
+      <p class="contact-info"><strong>Email:</strong> info@lawfirmpartners.com</p>
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="form-response">Thank you for your message! We will respond shortly.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 LawFirm &amp; Partners. All rights reserved.
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      let form = e.target;
+      form.style.display = 'none';
+      document.getElementById('form-response').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
